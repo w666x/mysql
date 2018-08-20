@@ -7,5 +7,14 @@ FLUSH PRIVILEGES;
 
 
 -- 127.0.0.1 
--- guests
+-- guests/this_machine/test
 -- guests123
+
+-- 本地ip创建用户
+create user 'account'@'ip' identified by 'password';
+-- 本地建立用户
+create user 'account'@'localhost' identified by 'password';
+-- 远程建立用户
+create user 'account'@'%' identified by 'password';
+-- 设置用户权限
+grant select, insert, update, delete, create, drop, alter, create temporary tables, execute on my_suppliers.* to 'accouns'@'localhost' with grant option;
